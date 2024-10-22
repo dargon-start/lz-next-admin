@@ -12,7 +12,7 @@ export default function Menu ({
       <LayoutHeader></LayoutHeader>
       <div className='flex flex-1'>
         <LayoutMenu></LayoutMenu>
-        <main>{children}</main>
+        <main className='flex-1'>{children}</main>
       </div>
     </div>
   );
