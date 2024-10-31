@@ -4,6 +4,7 @@ import locale from 'antd/locale/zh_CN';
 import useTheme from '@/hook/useTheme'
 import {ThemeContext} from '@/hook/themeContext'
 import type {ThemeContextValue} from '@/hook/themeContext'
+import themeConfig from './themeConfig';
 
 export interface ThemeProviderProps {  
   children: React.ReactNode;  
@@ -19,6 +20,7 @@ export default function ThemeProvider(props: ThemeProviderProps) {
               theme={{  
                   algorithm:  
                   value === 'light' ? theme.defaultAlgorithm : theme.darkAlgorithm,  
+                  token: themeConfig.token,
               }}  
           >  
               {props.children}
