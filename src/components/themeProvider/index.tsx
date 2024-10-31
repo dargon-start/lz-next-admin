@@ -21,8 +21,8 @@ export default function ThemeProvider(props: ThemeProviderProps) {
                   value === 'light' ? theme.defaultAlgorithm : theme.darkAlgorithm,  
               }}  
           >  
-              {props.children}  
+              {props.children}
           </ConfigProvider>  
-      </ThemeContext.Provider>  
-  );  
+      </ThemeContext.Provider>
+  ); 
 }

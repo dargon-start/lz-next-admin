@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import {
   AppstoreOutlined,
   MailOutlined,
+  RedditSquareFilled
 } from '@ant-design/icons';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -26,6 +27,11 @@ const items: MenuItem[] = [
     children: [
       { key: 'orders', label: '订单' },
     ],
+  },
+  {
+    key: 'cpm-test',
+    label: '测试组件',
+    icon: <RedditSquareFilled />,
   },
 ];
 
