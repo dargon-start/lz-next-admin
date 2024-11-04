@@ -2,7 +2,7 @@
 
 import React from 'react';
 import LayoutHeader from '@/components/layoutHeader'
-import LayoutMenu from '@/components/layoutMenu'
+import LayoutMenu from '@/components/layout-menu'
 import { theme } from 'antd';
 export default function Menu ({
   children,

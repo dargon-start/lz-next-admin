@@ -1,7 +1,7 @@
 'use client'
 
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-import ThemeProvider from '@/components/themeProvider';
+import ThemeProvider from '@/components/theme-provider';
 import './globals.css';
 
 

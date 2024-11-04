@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchFormTable from '@/components/searchFormTable';
+import SearchFormTable from '@/components/search-form-table';
 export default function Orders() {
 
 

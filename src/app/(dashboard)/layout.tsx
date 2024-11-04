@@ -1,6 +1,6 @@
 
 import React from "react";
-import BasicLayout from '@/components/basicLayout'
+import BasicLayout from '@/components/basic-layout'
 
 export default function DashBoardLayout({
   children,
