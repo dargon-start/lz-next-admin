@@ -17,11 +17,13 @@ export default function ThemeProvider(props: ThemeProviderProps) {
       <ThemeContext.Provider value={{ theme: value, toggleTheme } as ThemeContextValue}>  
           <ConfigProvider  
               locale={locale} 
-              theme={{  
+              theme={{ 
+                  cssVar: true,
+                  hashed: false,                
                   algorithm:  
                   value === 'light' ? theme.defaultAlgorithm : theme.darkAlgorithm,  
                   token: themeConfig.token,
-              }}  
+              }}
           >  
               {props.children}
           </ConfigProvider>  

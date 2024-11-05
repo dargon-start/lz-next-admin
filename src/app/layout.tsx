@@ -2,7 +2,8 @@
 
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import ThemeProvider from '@/components/theme-provider';
-import './globals.css';
+import './globals.scss';
+import { useStyles } from '@/styles';
 
 
 export default function RootLayout({
@@ -11,13 +12,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+  const { styles, cx } = useStyles();
 
   return (
     <html lang="en">
-      <body className='h-[100vh]'>
+      <body>
         <ThemeProvider>
-          <AntdRegistry>{children}</AntdRegistry>
-        </ThemeProvider>  
+          <AntdRegistry>
+            <div className={cx('h-[100vh]', styles.container)}>
+              {children}
+            </div>
+          </AntdRegistry>
+        </ThemeProvider>
       </body>
     </html>
   );

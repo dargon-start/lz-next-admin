@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Watermark } from 'antd';
 import BasicLayout from '@/components/basic-layout'
 
 export default function DashBoardLayout({
@@ -9,9 +10,11 @@ export default function DashBoardLayout({
 }>){
   return (
     <>
-     <BasicLayout>
-      {children}
-     </BasicLayout>
+      <BasicLayout>
+        <Watermark content={['00101', 'lz']} style={{height:'100%'}}>
+          {children}
+        </Watermark>
+      </BasicLayout>
     </>
   )
 }
