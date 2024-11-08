@@ -5,13 +5,12 @@ import useTheme from '@/hook/useTheme'
 import {ThemeContext} from '@/hook/themeContext'
 import type {ThemeContextValue} from '@/hook/themeContext'
 import themeConfig from './themeConfig';
-
 export interface ThemeProviderProps {  
   children: React.ReactNode;  
-}  
+}
 
 export default function ThemeProvider(props: ThemeProviderProps) {  
-  const [value, toggleTheme] = useTheme();  
+  const [value, toggleTheme] = useTheme();
 
   return (  
       <ThemeContext.Provider value={{ theme: value, toggleTheme } as ThemeContextValue}>  
@@ -24,8 +23,8 @@ export default function ThemeProvider(props: ThemeProviderProps) {
                   value === 'light' ? theme.defaultAlgorithm : theme.darkAlgorithm,  
                   token: themeConfig.token,
               }}
-          >  
-              {props.children}
+          >
+            {props.children}
           </ConfigProvider>  
       </ThemeContext.Provider>
   ); 
