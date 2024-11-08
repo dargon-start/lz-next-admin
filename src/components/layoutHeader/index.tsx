@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import {useThemeContext} from '@/hook/themeContext'
+import {useThemeContext} from '@/hooks/themeContext'
 import themeLight from '@/assets/svg/theme-light.svg'
 import themeDark from '@/assets/svg/theme-dark.svg'
 
