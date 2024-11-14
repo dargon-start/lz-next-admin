@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       <CpmWrap>
         <h1 className="mb-2.5">渐变组件</h1>
-             <LinearCpm></LinearCpm>
+        <LinearCpm></LinearCpm>
       </CpmWrap>
 
       <CpmWrap>

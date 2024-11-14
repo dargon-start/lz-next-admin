@@ -5,5 +5,4 @@ const themeConfig = {
     colorWarning: "#faad14",
   },
 };
-
 export default themeConfig;
