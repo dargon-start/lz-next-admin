@@ -15,7 +15,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <AntdRegistry>
-            <div className="h-[100vh]">{children}</div>
+            <div>{children}</div>
           </AntdRegistry>
         </ThemeProvider>
       </body>

@@ -11,9 +11,9 @@ export default function DashBoardLayout({
   return (
     <>
       <BasicLayout>
-        <Watermark content={['00101', 'lz']} style={{height:'100%'}}>
+        {/* <Watermark content={['00101', 'lz']}> */}
           {children}
-        </Watermark>
+        {/* </Watermark> */}
       </BasicLayout>
     </>
   )
