@@ -1,11 +1,11 @@
 'use client'
 
-import LogicFlow from '@logicflow/core';
-import '@logicflow/core/dist/index.css';
-import { useEffect, useRef } from 'react';
+import LogicFlow from '@logicflow/core'
+import '@logicflow/core/dist/index.css'
+import { useEffect, useRef } from 'react'
 
 export default function LogicFlowCpm() {
-  const refContainer = useRef(null);
+  const refContainer = useRef(null)
   const data = {
     // 节点
     nodes: [
@@ -32,19 +32,18 @@ export default function LogicFlowCpm() {
         targetNodeId: '21',
       },
     ],
-  };
+  }
   useEffect(() => {
     if (refContainer.current) {
       const lf = new LogicFlow({
         container: refContainer.current,
         grid: true,
         height: 200,
-      });
-      lf.translateCenter();
-      lf.render(data);
+      })
+      lf.translateCenter()
+      lf.render(data)
     }
-  }, []);
+  }, [])
 
-  return <div className="w-[90%] h-[400px]" ref={refContainer}></div>;
+  return <div className="h-[400px] w-[90%]" ref={refContainer}></div>
 }
-

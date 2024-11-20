@@ -1,11 +1,16 @@
-.liner{
+.liner {
   display: flex;
   justify-content: space-between;
   width: 200px;
   height: 40px;
-  background: linear-gradient(110deg, rgb(1, 145, 228) 49%, rgb(0, 0, 0) 49% 51%,rgb(168, 179, 190) 51%);
+  background: linear-gradient(
+    110deg,
+    rgb(1, 145, 228) 49%,
+    rgb(0, 0, 0) 49% 51%,
+    rgb(168, 179, 190) 51%
+  );
 
-  span{
+  span {
     display: inline-block;
     width: 50%;
     line-height: 40px;

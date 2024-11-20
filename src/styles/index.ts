@@ -5,6 +5,6 @@ export const useStyles = createStyles(({ token }) => ({
   container: {
     backgroundColor: token.colorBgLayout,
     borderRadius: token.borderRadiusLG,
-    color:token.colorTextBase,
+    color: token.colorTextBase,
   },
-}));
+}))

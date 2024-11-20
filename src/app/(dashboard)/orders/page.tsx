@@ -1,8 +1,5 @@
-import React from 'react';
-import SearchFormTable from '@/components/search-form-table';
+import SearchFormTable from '@/components/search-form-table'
 export default function Orders() {
-
-
   const searchFields = [
     {
       label: '订单编号',
@@ -19,11 +16,11 @@ export default function Orders() {
           value: '1',
         },
         {
-          label:'已支付',
+          label: '已支付',
           value: '2',
-        }
-      ]
-    }
+        },
+      ],
+    },
   ]
 
   const dataSource = [
@@ -39,8 +36,8 @@ export default function Orders() {
       age: 42,
       address: '西湖区湖底公园1号',
     },
-  ];
-  
+  ]
+
   const columns = [
     {
       title: '姓名',
@@ -57,11 +54,15 @@ export default function Orders() {
       dataIndex: 'address',
       key: 'address',
     },
-  ];
+  ]
 
   return (
     <div>
-      <SearchFormTable searchFields={searchFields} tableColumns={columns} tableData={dataSource}></SearchFormTable>
+      <SearchFormTable
+        searchFields={searchFields}
+        tableColumns={columns}
+        tableData={dataSource}
+      ></SearchFormTable>
     </div>
-  );
+  )
 }
