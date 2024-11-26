@@ -1,4 +1,7 @@
 module.exports = {
+  // 支持解析ts
+  parser: '@typescript-eslint/parser',
+  // @typescript-eslint检查语法，@stylistic检查代码风格
   plugins: ['@typescript-eslint', '@stylistic'],
   extends: [
     'next/core-web-vitals',

@@ -39,12 +39,14 @@ type Props = {
   searchFields: SearchFields[]
   tableColumns: TableProps<DataType>['columns']
   tableData: DataType[]
+  actionsElement?: React.ReactNode
 };
 
 export default function SearchFormTable({
   searchFields,
   tableColumns,
   tableData,
+  actionsElement,
 }: Props) {
   const { token } = theme.useToken()
   const [form] = Form.useForm()
@@ -130,6 +132,9 @@ export default function SearchFormTable({
           </Space>
         </div>
       </Form>
+      <div className="m-2.5">
+        {actionsElement}
+      </div>
       <Table<DataType>
         className="mt-2.5"
         columns={tableColumns}

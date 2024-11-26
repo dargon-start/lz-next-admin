@@ -12,7 +12,7 @@ export default function Menu({
   const { token } = theme.useToken()
   return (
     <div
-      className="flex h-[100%] flex-col"
+      className="flex h-full flex-col"
       style={{
         backgroundColor: token.colorBgLayout,
         color: token.colorTextBase,

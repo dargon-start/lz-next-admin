@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
-  redirects(){
+  reactStrictMode: false, // 管理react严格模式
+  redirects() {
     return [
       {
         source: '/',
@@ -9,7 +10,7 @@ const nextConfig = {
         permanent: true, // 308永久缓存重定向
       },
     ]
-  }
-};
+  },
+}
 
-export default nextConfig;
+export default nextConfig

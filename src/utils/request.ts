@@ -28,7 +28,7 @@ instance.interceptors.response.use(
         case 401:
           // 客户端环境
           // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-          window && (window.location.href = '/user/login')
+          // window && (window.location.href = '/user/login')
         case 500:
           message.error(error.response.data.msg)
       }
