@@ -7,6 +7,9 @@ import { Conversations, Sender, Welcome, Bubble } from '@ant-design/x'
 import type { ConversationsProps } from '@ant-design/x'
 import type { GetProp } from 'antd'
 
+import { inputMessage } from './hook'
+
+// 回话列表
 const items: GetProp<ConversationsProps, 'items'> = [
   // Basic
   {
@@ -41,6 +44,7 @@ const items: GetProp<ConversationsProps, 'items'> = [
   },
 ]
 
+// 历史消息
 const fooAvatar: React.CSSProperties = {
   color: '#f56a00',
   backgroundColor: '#fde3cf',
@@ -57,13 +61,27 @@ const hideAvatar: React.CSSProperties = {
 
 export default function ChatAI() {
 
-  const [value, setValue] = useState<string>('Hello? this is X!')
+  const [value, setValue] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
   const { message } = App.useApp()
 
   // 是否有提问
   const [hasRequested, setHasRequested] = useState(false)
+  const [messages, setMessages] = useState<any[]>([])
+
+  const onSubmit = async () => {
+    setValue('')
+    setLoading(true)
+    setHasRequested(true)
+
+    const newMessage = { role: 'user', content: value }
+    setMessages([...messages, newMessage])
+
+    const answerMsg = await inputMessage([...messages, newMessage])
+    setMessages([...messages, newMessage, answerMsg])
+    setLoading(false)
+  }
 
   return (
     <div className="flex h-full">
@@ -76,23 +94,17 @@ export default function ChatAI() {
           {
             hasRequested
               ? <Flex gap="middle" vertical>
-                <Bubble
-                  placement="start"
-                  content="Good morning, how are you?"
-                  avatar={{ icon: <UserOutlined />, style: fooAvatar }}
-                />
-                <Bubble
-                  placement="start"
-                  content="What a beautiful day!"
-                  styles={{ avatar: hideAvatar }}
-                  avatar={{}}
-                />
-                <Bubble
-                  placement="end"
-                  content="Hi, good morning, I'm fine!"
-                  avatar={{ icon: <UserOutlined />, style: barAvatar }}
-                />
-                <Bubble placement="end" content="Thank you!" styles={{ avatar: hideAvatar }} avatar={{}} />
+                {
+                  messages.map((item, index) => (
+                    <Bubble
+                      placement={item.role === 'assistant' ? 'start' : 'end'}
+                      key={index}
+                      typing={{ step: 2, interval: 50 }}
+                      content={item.content}
+                      avatar={{ icon: <UserOutlined /> }}
+                    />
+                  ))
+                }
               </Flex>
               : <Welcome
 
@@ -113,12 +125,7 @@ export default function ChatAI() {
           onChange={(v) => {
             setValue(v)
           }}
-          onSubmit={() => {
-            setValue('')
-            setLoading(true)
-            setHasRequested(true)
-            message.info('Send message!')
-          }}
+          onSubmit={onSubmit}
           onCancel={() => {
             setLoading(false)
             message.error('Cancel sending!')

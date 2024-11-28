@@ -1,4 +1,5 @@
 'use client'
+
 import {
   AppstoreOutlined,
   MailOutlined,
@@ -15,7 +16,7 @@ const items: MenuItem[] = [
     key: '1',
     label: '用户管理',
     icon: <MailOutlined />,
-    children: [{ key: '/user', label: '用户列表' }],
+    children: [{ key: 'user', label: '用户列表' }],
   },
   {
     key: '2',
@@ -26,6 +27,11 @@ const items: MenuItem[] = [
   {
     key: 'cpm-test',
     label: '测试组件',
+    icon: <RedditSquareFilled />,
+  },
+  {
+    key: 'chat-ai',
+    label: 'chat-AI',
     icon: <RedditSquareFilled />,
   },
 ]

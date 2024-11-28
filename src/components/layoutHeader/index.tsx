@@ -12,7 +12,7 @@ export default function LayoutHeader() {
   return (
     <div className="flex h-[50px] flex-row justify-between shadow-md">
       <div className="h-[50px] w-[200px] text-center text-4xl text-indigo-600">
-        logo
+        lz-admin
       </div>
       <div className="mr-[50px] flex flex-row items-center">
         <div className="ml-[10px]">用户名</div>
