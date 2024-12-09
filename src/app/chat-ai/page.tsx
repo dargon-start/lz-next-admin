@@ -1,11 +1,14 @@
 'use client'
 
 import { use, useState } from 'react'
-import { Card, App, Flex } from 'antd'
+import { Card, App, Flex, Typography } from 'antd'
 import { GithubOutlined, AlipayCircleOutlined, DockerOutlined, UserOutlined } from '@ant-design/icons'
 import { Conversations, Sender, Welcome, Bubble } from '@ant-design/x'
-import type { ConversationsProps } from '@ant-design/x'
+import type { ConversationsProps, BubbleProps } from '@ant-design/x'
 import type { GetProp } from 'antd'
+import markdownIt from 'markdown-it'
+import 'highlight.js/styles/atom-one-dark-reasonable.css'
+import hljs from 'highlight.js'
 
 import { inputMessage } from './hook'
 
@@ -59,6 +62,25 @@ const hideAvatar: React.CSSProperties = {
   visibility: 'hidden',
 }
 
+// 文本以markdown渲染
+const md = markdownIt({
+  highlight (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(str, { language: lang }).value
+      } catch (__) {}
+    }
+
+    return ''
+  },
+})
+
+const renderMarkdown: BubbleProps['messageRender'] = (content) => (
+  <Typography>
+    <div dangerouslySetInnerHTML={{ __html: md.render(content) }} />
+  </Typography>
+)
+
 export default function ChatAI() {
 
   const [value, setValue] = useState<string>('')
@@ -68,7 +90,10 @@ export default function ChatAI() {
 
   // 是否有提问
   const [hasRequested, setHasRequested] = useState(false)
-  const [messages, setMessages] = useState<any[]>([])
+  const [messages, setMessages] = useState<any[]>([{
+    role: 'assistant',
+    content: 'Hi, I am chat-AI, how can I help you?',
+  }])
 
   const onSubmit = async () => {
     setValue('')
@@ -89,7 +114,7 @@ export default function ChatAI() {
         <Conversations items={items} defaultActiveKey="item1" />
       </Card>
       <div className="flex flex-col justify-between h-full w-full p-5">
-        <div>
+        <div className="flex-1 mb-2.5">
           <h1 className="mb-5">Chat-AI</h1>
           {
             hasRequested
@@ -101,13 +126,13 @@ export default function ChatAI() {
                       key={index}
                       typing={{ step: 2, interval: 50 }}
                       content={item.content}
+                      messageRender={renderMarkdown}
                       avatar={{ icon: <UserOutlined /> }}
                     />
                   ))
                 }
               </Flex>
               : <Welcome
-
                 style={{
                   backgroundImage: 'linear-gradient(97deg, #f2f9fe 0%, #f7f3ff 100%)',
                   borderStartStartRadius: 4,

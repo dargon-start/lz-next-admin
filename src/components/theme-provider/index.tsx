@@ -24,6 +24,11 @@ export default function ThemeProvider(props: ThemeProviderProps) {
           algorithm:
             value === 'light' ? theme.defaultAlgorithm : theme.darkAlgorithm,
           token: themeConfig.token,
+          components: {
+            Typography: {
+              /* 这里是你的组件 token */
+            },
+          },
         }}
       >
         {props.children}
