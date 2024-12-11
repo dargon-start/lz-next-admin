@@ -15,24 +15,14 @@ export default function Home() {
 
   const searchFields = [
     {
-      label: '订单编号',
-      prop: 'orderNo',
+      label: '姓名',
+      prop: 'name',
       type: 'input',
     },
     {
-      label: '订单状态',
-      prop: 'orderStatus',
-      type: 'select',
-      options: [
-        {
-          label: '待支付',
-          value: '1',
-        },
-        {
-          label: '已支付',
-          value: '2',
-        },
-      ],
+      label: '年龄',
+      prop: 'age',
+      type: 'input',
     },
   ]
 
