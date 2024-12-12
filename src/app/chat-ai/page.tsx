@@ -90,10 +90,7 @@ export default function ChatAI() {
 
   // 是否有提问
   const [hasRequested, setHasRequested] = useState(false)
-  const [messages, setMessages] = useState<any[]>([{
-    role: 'assistant',
-    content: 'Hi, I am chat-AI, how can I help you?',
-  }])
+  const [messages, setMessages] = useState<any[]>([])
 
   const onSubmit = async () => {
     setValue('')
@@ -110,12 +107,12 @@ export default function ChatAI() {
 
   return (
     <div className="flex h-full">
-      <Card style={{ width: 320, height: '100%' }} size="small">
+      <Card style={{ width: 320 }} size="small">
         <Conversations items={items} defaultActiveKey="item1" />
       </Card>
-      <div className="flex flex-col justify-between h-full w-full p-5">
-        <div className="flex-1 mb-2.5">
-          <h1 className="mb-5">Chat-AI</h1>
+      <div className="flex flex-col justify-between h-full w-full overflow-hidden">
+        <h1 className="m-5">Chat-AI</h1>
+        <div className="flex-1 mb-2.5 overflow-y-auto p-10">
           {
             hasRequested
               ? <Flex gap="middle" vertical>
@@ -144,18 +141,20 @@ export default function ChatAI() {
           }
 
         </div>
-        <Sender
-          loading={loading}
-          value={value}
-          onChange={(v) => {
-            setValue(v)
-          }}
-          onSubmit={onSubmit}
-          onCancel={() => {
-            setLoading(false)
-            message.error('Cancel sending!')
-          }}
-        />
+        <div className="p-5">
+          <Sender
+            loading={loading}
+            value={value}
+            onChange={(v) => {
+              setValue(v)
+            }}
+            onSubmit={onSubmit}
+            onCancel={() => {
+              setLoading(false)
+              message.error('Cancel sending!')
+            }}
+          />
+        </div>
       </div>
     </div>
   )

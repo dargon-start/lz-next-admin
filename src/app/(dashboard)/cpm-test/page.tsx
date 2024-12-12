@@ -8,11 +8,11 @@ import CpmWrap from '@/components/cpm-wrap'
 import DragAndDrop from '@/components/drag-and-drop'
 import LinearCpm from '@/components/linear-cpm'
 import LogicFlowCpm from '@/components/logic-flow-cpm'
-import Store from '@/store'
-
-const store = new Store()
+import { useStore } from '@/store'
 
 export default observer(function Home() {
+
+  const { user } = useStore()
 
   return (
     <div>
@@ -40,8 +40,8 @@ export default observer(function Home() {
 
       <CpmWrap>
         <h1 className="mb-2.5">状态组件</h1>
-        <div>{store.value}</div>
-        <Button onClick={() => store.increment()}>增加</Button>
+        <div>{user.value}</div>
+        <Button onClick={user.increment}>增加</Button>
       </CpmWrap>
     </div>
   )

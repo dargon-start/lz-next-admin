@@ -15,7 +15,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <AntdRegistry>
-            <div className="h-full">{children}</div>
+            <div className="h-screen">{children}</div>
           </AntdRegistry>
         </ThemeProvider>
       </body>

@@ -10,7 +10,7 @@ const openai = new OpenAI(
 
 export async function inputMessage(messages: any[]) {
   const completion = await openai.chat.completions.create({
-    model: 'qwen-plus', //模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
+    model: 'qwq-32b-preview', //模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
     messages,
     // stream: true,
   })
