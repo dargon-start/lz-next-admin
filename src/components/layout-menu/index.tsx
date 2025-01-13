@@ -9,7 +9,7 @@ import type { MenuProps } from 'antd'
 import { Menu } from 'antd'
 import { useRouter } from 'next/navigation'
 
-type MenuItem = Required<MenuProps>['items'][number];
+type MenuItem = Required<MenuProps>['items'][number]
 
 const items: MenuItem[] = [
   {
@@ -32,6 +32,11 @@ const items: MenuItem[] = [
   {
     key: 'chat-ai',
     label: 'chat-AI',
+    icon: <RedditSquareFilled />,
+  },
+  {
+    key: 'animate',
+    label: '动画组件',
     icon: <RedditSquareFilled />,
   },
 ]
